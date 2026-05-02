@@ -741,6 +741,14 @@ hr {
   max-width: 64ch;
 }
 
+/* ---------- Utility classes (no inline style attrs, CSP-safe) ---------- */
+.u-mt-3    { margin-top: var(--s-3); }
+.u-mt-4    { margin-top: var(--s-4); }
+.u-mt-5    { margin-top: var(--s-5); }
+.u-mt-6    { margin-top: var(--s-6); }
+.u-mt-7    { margin-top: var(--s-7); }
+.u-maxw-64 { max-width: 64ch; }
+
 /* ---------- Reveal (intersection observer hook) ---------- */
 .reveal {
   opacity: 0;

@@ -1,0 +1,33 @@
+# =============================================================
+# Arkeon Group · Netlify _headers
+# v1.0 · mei 2026
+# Security headers in lijn met OWASP en Mozilla Observatory.
+# CSP is strict: geen unsafe-inline voor style of script.
+# Inline JSON-LD (alleen op /) wordt toegestaan via SHA-256 hash.
+# =============================================================
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; script-src 'self' 'sha256-YUplRc60O1B/CUDRReK7FHOmHZPqfRnbUGnh02uo27w='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; upgrade-insecure-requests
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+# Static assets: aggressieve cache (1 jaar) want bestandsnamen wijzigen of stylesheet bevat versie-comment
+/styles.css
+  Cache-Control: public, max-age=86400, must-revalidate
+/script.js
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=2592000, must-revalidate
+
+# HTML pages: kortere cache zodat updates snel zichtbaar zijn
+/*.html
+  Cache-Control: public, max-age=600, must-revalidate
+
+/
+  Cache-Control: public, max-age=600, must-revalidate
